@@ -33,4 +33,18 @@ public class CatListTest {
         breederList.removeCatName();
         Assertions.assertTrue(breederList.size() == 0);
     }
+
+    @Test
+    @DisplayName("Cant get can name from an empty list")
+    void cantGetCatFromAnEmptyList(){
+        CatList emptyCatList = new CatList();
+        Assertions.assertThrows(IllegalStateException.class, () -> emptyCatList.nextCatName(), "Illegal state is expected");
+    }
+
+    @Test
+    @DisplayName("Cant remove cat name from an empty list")
+    void cantRemoveCatFromAnEmptyList(){
+        CatList emptyCatList = new CatList();
+        Assertions.assertThrows(IllegalStateException.class, () -> emptyCatList.removeCatName(), "Illegal state is expected");
+    }
 }
