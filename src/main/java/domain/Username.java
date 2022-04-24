@@ -1,6 +1,7 @@
 package domain;
 
-import org.apache.commons.lang3.Validate;
+
+import static org.apache.commons.lang3.Validate.*;
 
 public class Username {
     private String value;
@@ -10,10 +11,10 @@ public class Username {
 
 
     public Username(String username) {
-        Validate.notBlank(username);
+        notBlank(username);
         final String trimmed = username.trim();
-        Validate.inclusiveBetween(MIN_LENGTH, MAX_LENGTH, trimmed.length());
-        Validate.matchesPattern(trimmed,
+        inclusiveBetween(MIN_LENGTH, MAX_LENGTH, trimmed.length());
+        matchesPattern(trimmed,
                 VALID_CHARACTERS,
                 "Allowed characters are: %s", VALID_CHARACTERS);
         this.value = trimmed;
